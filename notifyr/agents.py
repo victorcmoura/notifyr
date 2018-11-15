@@ -14,19 +14,26 @@ def observer(update_function):
 
     return class_decorator
 
-def observed(observers_list_function):
-
-    pre_eval_observers_list = 'args[0].' + observers_list_function + '()' # Object.observers_list_function()
-
-    def class_decorator(cls):
-        def notify(*args, **kwargs):
-            for each in eval(pre_eval_observers_list):
+def observed(cls):
+    def notify(*args, **kwargs):
+        try:
+            for each in args[0].observers:
                 each.update(*args[1:], **kwargs)
+        except AttributeError:
+            args[0].observers = []
 
-        def wrapper(cls):
-            setattr(cls, 'notify', notify)
-            return cls
+    def attach(cls_obj, to_attach):
+        try:
+            cls_obj.observers
+        except AttributeError:
+            cls_obj.observers = []
 
-        return wrapper(cls)
+        cls_obj.observers.append(to_attach)
 
-    return class_decorator
+
+    def wrapper(cls):
+        setattr(cls, 'notify', notify)
+        setattr(cls, 'attach', attach)
+        return cls
+
+    return wrapper(cls)
