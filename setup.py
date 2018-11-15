@@ -1,11 +1,13 @@
-from setuptools import setup
+import setuptools
 
-setup(name='notifyr',
-      version='0.1',
-      description='Object notification tool',
+setuptools.setup(
+      name='notifyr',
+      version='1.0',
+      description='Object notification tool that implements observer design pattern at runtime',
       url='https://github.com/victorcmoura/notifyr',
       author='Victor Moura',
       author_email='victor_cmoura@hotmail.com',
-      license='MIT',
-      packages=['notifyr'],
-      zip_safe=False)
+      license='GPL-3.0',
+      packages=setuptools.find_packages(),
+      zip_safe=False
+)
