@@ -5,7 +5,7 @@ with open('README.md', 'r') as readme:
 
 setuptools.setup(
       name='notifyr',
-      version='1.0',
+      version='1.1',
       description='Object notification tool that implements observer design pattern at runtime',
       url='https://github.com/victorcmoura/notifyr',
       author='Victor Moura',
