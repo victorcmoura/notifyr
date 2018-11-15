@@ -1,5 +1,8 @@
 import setuptools
 
+with open('README.md', 'r') as readme:
+  long_description = readme.read()
+
 setuptools.setup(
       name='notifyr',
       version='1.0',
@@ -9,5 +12,7 @@ setuptools.setup(
       author_email='victor_cmoura@hotmail.com',
       license='GPL-3.0',
       packages=setuptools.find_packages(),
-      zip_safe=False
+      zip_safe=False,
+      long_description_content_type="text/markdown",
+      long_description=long_description
 )
