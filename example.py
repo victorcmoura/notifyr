@@ -1,32 +1,34 @@
-from notifyr.agents import observer, observed
+from notifyr.agents import observed, observer
 from notifyr.functions import target
 
 @observed
 class Dog(object):
     def __init__(self, name):
         self.name = name
-
+    
     @target
     def bark(self):
         print('Woof')
-
+    
     def sleep(self):
-        print('ZZzzZZZzZzZ')
-
+        print(self.name, 'is now asleep: ZZzzzzZzzZ...')
+    
 @observer('educate_dog')
-class Owner(object):
+class Person(object):
     def __init__(self, name):
-        self.dogs = []
         self.name = name
-
+    
     def educate_dog(self, dog):
+        print(self.name + ':','Sleep,', dog.name)
         dog.sleep()
 
+if __name__ == "__main__":
+    d = Dog('Tobby')
+    p = Person('Victor')
 
-d = Dog('Tobby')
-d.bark()
+    d.attach(p) # Victor is now observing Tobby
 
-o = Owner('Victor')
-d.attach(o)
-
-d.bark()
+    d.bark()
+    # Woof
+    # Victor: Sleep, Tobby
+    # Tobby is now asleep: ZZzzzzZzzZ...
