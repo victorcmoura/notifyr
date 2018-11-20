@@ -1,5 +1,7 @@
 # notifyr - *Create observers in runtime*
-PyPi: https://pypi.org/project/notifyr/
+[![PyPI](https://img.shields.io/badge/pypi-v1.1-blue.svg)](https://pypi.org/project/notifyr/)
+
+
 
 ## Description
   Notifyr is a package that enables simple class observed-observer schema at runtime. Instead of building the whole observation and notification toolchain, just use python decorators and notifyr will take care of the rest.
