@@ -1,4 +1,4 @@
-# notifyr - *Create observers in runtime*
+# notifyr - *Create observers at runtime*
 [![PyPI](https://img.shields.io/badge/pypi-v1.1-blue.svg)](https://pypi.org/project/notifyr/)
 
 
